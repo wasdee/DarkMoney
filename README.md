@@ -1,7 +1,8 @@
 # darkmonney
 
 ```bash
-pip3 install pipenv
+pip3 install pipenv # or brew install pipenv
 pipenv update
-python3 darkWhisper.py
+pipenv shell
+python darkWhisper.py
 ```
