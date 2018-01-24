@@ -11,6 +11,7 @@ python-box = "*"
 pip = "*"
 uplink = "*"
 pendulum = "*"
+pymongo = "*"
 
 
 [dev-packages]

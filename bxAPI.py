@@ -4,9 +4,19 @@ from box import Box
 
 class Bx(uplink.Consumer):
 
+    @classmethod
+    def startDefault(cls):
+        return cls('https://bx.in.th/api/')
+
     @uplink.timeout(10)
     @uplink.get('')
     def _getTicker(self): pass
+
+    def getAll(self):
+        response = self._getTicker()
+        tickers = json.loads(response.text)
+        print(tickers)
+        return tickers
 
     def getLTCSell(self):
         response = self._getTicker()
@@ -25,8 +35,7 @@ class Bx(uplink.Consumer):
         pass
 
 
-
 if __name__ == '__main__':
 
-    a = Bx('https://bx.in.th/api/')
-    a.getLTCSell()
+    a = Bx.startDefault()
+    print(a.getLTCSell())
